@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:eKino.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eKino.Mobile.Views.ZanroviPage"
+             Title="Pretplati se">
+    <ContentPage.BindingContext>
+        <vm:ZanroviViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <ListView ItemsSource="{Binding ZanroviList}" SelectedItem="{Binding SelectedZanr}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                
+                                <Label Text="{Binding Naziv}" HorizontalOptions="StartAndExpand"></Label>
+                                <Button Margin="2,2,2,2" Clicked="Button_Clicked" BindingContext="{Binding ZanrId}" HorizontalOptions="EndAndExpand" TextColor="White" BackgroundColor="#e00917" CornerRadius="3" Text="Pretplati se"></Button>
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

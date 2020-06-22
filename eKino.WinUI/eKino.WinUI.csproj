@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BA1A3A65-1E7E-45AA-8C2F-6795FD972CD2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>eKino.WinUI</RootNamespace>
+    <AssemblyName>eKino.WinUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Flurl, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.2.8.2\lib\net40\Flurl.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl.Http, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Http.2.4.2\lib\net46\Flurl.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIService.cs" />
+    <Compile Include="Države\frmDodavanjeDrzava.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Države\frmDodavanjeDrzava.Designer.cs">
+      <DependentUpon>frmDodavanjeDrzava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Države\frmPrikazDrzava.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Države\frmPrikazDrzava.Designer.cs">
+      <DependentUpon>frmPrikazDrzava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilmoviFilmskeLicnosti\frmDodavanjeFilmoviFilmskeLicnosti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilmoviFilmskeLicnosti\frmDodavanjeFilmoviFilmskeLicnosti.Designer.cs">
+      <DependentUpon>frmDodavanjeFilmoviFilmskeLicnosti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilmoviFilmskeLicnosti\frmPrikazFilmoviFilmskeLicnosti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilmoviFilmskeLicnosti\frmPrikazFilmoviFilmskeLicnosti.Designer.cs">
+      <DependentUpon>frmPrikazFilmoviFilmskeLicnosti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filmovi\frmDodavanjeFilmova.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filmovi\frmDodavanjeFilmova.Designer.cs">
+      <DependentUpon>frmDodavanjeFilmova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filmovi\frmPrikazFilmova.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filmovi\frmPrikazFilmova.Designer.cs">
+      <DependentUpon>frmPrikazFilmova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilmskeLičnosti\frmDodavanjeFilmskihLicnosti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilmskeLičnosti\frmDodavanjeFilmskihLicnosti.Designer.cs">
+      <DependentUpon>frmDodavanjeFilmskihLicnosti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilmskeLičnosti\frmPrikazFilmskihLicnosti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilmskeLičnosti\frmPrikazFilmskihLicnosti.Designer.cs">
+      <DependentUpon>frmPrikazFilmskihLicnosti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilmskeUloge\frmDodavanjeFilmskeUloge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilmskeUloge\frmDodavanjeFilmskeUloge.Designer.cs">
+      <DependentUpon>frmDodavanjeFilmskeUloge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilmskeUloge\frmPrikazFilmskeUloge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilmskeUloge\frmPrikazFilmskeUloge.Designer.cs">
+      <DependentUpon>frmPrikazFilmskeUloge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gledaoci\frmGledaociDodavanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gledaoci\frmGledaociDodavanje.Designer.cs">
+      <DependentUpon>frmGledaociDodavanje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gledaoci\frmGledaociPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gledaoci\frmGledaociPrikaz.Designer.cs">
+      <DependentUpon>frmGledaociPrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\DSFilm.cs">
+      <DependentUpon>DSFilm.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\DSFilm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSFilm.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\frmIzvjestaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaji\frmIzvjestaj.Designer.cs">
+      <DependentUpon>frmIzvjestaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\frmIzvjestajFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaji\frmIzvjestajFilm.Designer.cs">
+      <DependentUpon>frmIzvjestajFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnici\frmDodavanjeKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnici\frmDodavanjeKorisnika.Designer.cs">
+      <DependentUpon>frmDodavanjeKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnici\frmPrikazKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnici\frmPrikazKorisnika.Designer.cs">
+      <DependentUpon>frmPrikazKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Novosti\frmDodajUrediNovosti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Novosti\frmDodajUrediNovosti.Designer.cs">
+      <DependentUpon>frmDodajUrediNovosti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Novosti\frmPrikazNovosti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Novosti\frmPrikazNovosti.Designer.cs">
+      <DependentUpon>frmPrikazNovosti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ocjene\frmOcjenePrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ocjene\frmOcjenePrikaz.Designer.cs">
+      <DependentUpon>frmOcjenePrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pocetna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pocetna.designer.cs">
+      <DependentUpon>Pocetna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pretplate\frmPretplatePrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pretplate\frmPretplatePrikaz.Designer.cs">
+      <DependentUpon>frmPretplatePrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Projekcije\frmDodavanjeProjekcije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projekcije\frmDodavanjeProjekcije.Designer.cs">
+      <DependentUpon>frmDodavanjeProjekcije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Projekcije\frmPrikazProjekcije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projekcije\frmPrikazProjekcije.Designer.cs">
+      <DependentUpon>frmPrikazProjekcije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rezervacije\frmDodajUrediRezervaciju.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rezervacije\frmDodajUrediRezervaciju.Designer.cs">
+      <DependentUpon>frmDodajUrediRezervaciju.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rezervacije\frmPrikazRezervacija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rezervacije\frmPrikazRezervacija.Designer.cs">
+      <DependentUpon>frmPrikazRezervacija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sale\frmDodavanjeSala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale\frmDodavanjeSala.Designer.cs">
+      <DependentUpon>frmDodavanjeSala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sale\frmPrikazSala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale\frmPrikazSala.Designer.cs">
+      <DependentUpon>frmPrikazSala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sjedista\frmSjedistaDodavanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sjedista\frmSjedistaDodavanje.Designer.cs">
+      <DependentUpon>frmSjedistaDodavanje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sjedista\frmSjedistaPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sjedista\frmSjedistaPrikaz.Designer.cs">
+      <DependentUpon>frmSjedistaPrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ulaznice\frmUlazniceDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ulaznice\frmUlazniceDetalji.Designer.cs">
+      <DependentUpon>frmUlazniceDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ulaznice\frmUlaznicePrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ulaznice\frmUlaznicePrikaz.Designer.cs">
+      <DependentUpon>frmUlaznicePrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Validator.cs" />
+    <Compile Include="VrsteProjekcije\frmVrsteProjekcijeDodavanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VrsteProjekcije\frmVrsteProjekcijeDodavanje.Designer.cs">
+      <DependentUpon>frmVrsteProjekcijeDodavanje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VrsteProjekcije\frmVrsteProjekcijePrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VrsteProjekcije\frmVrsteProjekcijePrikaz.Designer.cs">
+      <DependentUpon>frmVrsteProjekcijePrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zanrovi\frmDodavanjeZanrovi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zanrovi\frmDodavanjeZanrovi.Designer.cs">
+      <DependentUpon>frmDodavanjeZanrovi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zanrovi\frmPrikazZanrovi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zanrovi\frmPrikazZanrovi.Designer.cs">
+      <DependentUpon>frmPrikazZanrovi.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Države\frmDodavanjeDrzava.resx">
+      <DependentUpon>frmDodavanjeDrzava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Države\frmPrikazDrzava.resx">
+      <DependentUpon>frmPrikazDrzava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilmoviFilmskeLicnosti\frmDodavanjeFilmoviFilmskeLicnosti.resx">
+      <DependentUpon>frmDodavanjeFilmoviFilmskeLicnosti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilmoviFilmskeLicnosti\frmPrikazFilmoviFilmskeLicnosti.resx">
+      <DependentUpon>frmPrikazFilmoviFilmskeLicnosti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filmovi\frmDodavanjeFilmova.resx">
+      <DependentUpon>frmDodavanjeFilmova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filmovi\frmPrikazFilmova.resx">
+      <DependentUpon>frmPrikazFilmova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilmskeLičnosti\frmDodavanjeFilmskihLicnosti.resx">
+      <DependentUpon>frmDodavanjeFilmskihLicnosti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilmskeLičnosti\frmPrikazFilmskihLicnosti.resx">
+      <DependentUpon>frmPrikazFilmskihLicnosti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilmskeUloge\frmDodavanjeFilmskeUloge.resx">
+      <DependentUpon>frmDodavanjeFilmskeUloge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilmskeUloge\frmPrikazFilmskeUloge.resx">
+      <DependentUpon>frmPrikazFilmskeUloge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gledaoci\frmGledaociDodavanje.resx">
+      <DependentUpon>frmGledaociDodavanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gledaoci\frmGledaociPrikaz.resx">
+      <DependentUpon>frmGledaociPrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\frmIzvjestaj.resx">
+      <DependentUpon>frmIzvjestaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\frmIzvjestajFilm.resx">
+      <DependentUpon>frmIzvjestajFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\rpt_Film.rdlc" />
+    <EmbeddedResource Include="Korisnici\frmDodavanjeKorisnika.resx">
+      <DependentUpon>frmDodavanjeKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnici\frmPrikazKorisnika.resx">
+      <DependentUpon>frmPrikazKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Novosti\frmDodajUrediNovosti.resx">
+      <DependentUpon>frmDodajUrediNovosti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Novosti\frmPrikazNovosti.resx">
+      <DependentUpon>frmPrikazNovosti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ocjene\frmOcjenePrikaz.resx">
+      <DependentUpon>frmOcjenePrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pocetna.resx">
+      <DependentUpon>Pocetna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pretplate\frmPretplatePrikaz.resx">
+      <DependentUpon>frmPretplatePrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projekcije\frmDodavanjeProjekcije.resx">
+      <DependentUpon>frmDodavanjeProjekcije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projekcije\frmPrikazProjekcije.resx">
+      <DependentUpon>frmPrikazProjekcije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Rezervacije\frmDodajUrediRezervaciju.resx">
+      <DependentUpon>frmDodajUrediRezervaciju.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rezervacije\frmPrikazRezervacija.resx">
+      <DependentUpon>frmPrikazRezervacija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sale\frmDodavanjeSala.resx">
+      <DependentUpon>frmDodavanjeSala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sale\frmPrikazSala.resx">
+      <DependentUpon>frmPrikazSala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sjedista\frmSjedistaDodavanje.resx">
+      <DependentUpon>frmSjedistaDodavanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sjedista\frmSjedistaPrikaz.resx">
+      <DependentUpon>frmSjedistaPrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ulaznice\frmUlazniceDetalji.resx">
+      <DependentUpon>frmUlazniceDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ulaznice\frmUlaznicePrikaz.resx">
+      <DependentUpon>frmUlaznicePrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VrsteProjekcije\frmVrsteProjekcijeDodavanje.resx">
+      <DependentUpon>frmVrsteProjekcijeDodavanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VrsteProjekcije\frmVrsteProjekcijePrikaz.resx">
+      <DependentUpon>frmVrsteProjekcijePrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zanrovi\frmDodavanjeZanrovi.resx">
+      <DependentUpon>frmDodavanjeZanrovi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zanrovi\frmPrikazZanrovi.resx">
+      <DependentUpon>frmPrikazZanrovi.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Izvjestaji\DSFilm.xsc">
+      <DependentUpon>DSFilm.xsd</DependentUpon>
+    </None>
+    <None Include="Izvjestaji\DSFilm.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSFilm.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Izvjestaji\DSFilm.xss">
+      <DependentUpon>DSFilm.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eKino.Model\eKino.Model.csproj">
+      <Project>{18406d42-b6c4-4701-b1a9-46bf30b044fe}</Project>
+      <Name>eKino.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
+  </Target>
+</Project>

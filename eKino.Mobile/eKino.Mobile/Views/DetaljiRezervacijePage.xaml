@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:eKino.Mobile.ViewModels" xmlns:converters="clr-namespace:eKino.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="eKino.Mobile.Views.DetaljiRezervacijePage"
+             Title="Rezervacija">
+    <ContentPage.BindingContext>
+        <vm:DetaljiRezervacijeViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="15">
+                <StackLayout Orientation="Vertical">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition  Height="*"></RowDefinition>
+                            <RowDefinition  Height="Auto"></RowDefinition>
+                            <RowDefinition  Height="Auto"></RowDefinition>
+                            <RowDefinition  Height="Auto"></RowDefinition>
+                            <RowDefinition  Height="Auto"></RowDefinition>
+                            <RowDefinition  Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Margin="0" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Source="{Binding Slika, Converter={StaticResource imgConv}}" HeightRequest="300"></Image>
+
+                        <Label VerticalTextAlignment="Center" Text="Film" Grid.Row="0" Grid.Column="1"></Label>
+                        <Entry IsReadOnly="True" Text="{Binding Film}" Grid.Row="1" Grid.Column="1"></Entry>
+                        
+                        <Button Grid.Row="2" Grid.Column="1" BackgroundColor="#e00917" TextColor="White" CornerRadius="3" Clicked="Button_Clicked" BindingContext="{Binding Rezervacija}"  Text="Ocijeni film"></Button>
+                        
+                        <Label Grid.Row="3"/>
+
+                        <Label Grid.Row="4"/>
+
+                        <Label Text="Sala" Grid.Row="5" Grid.Column="0" VerticalOptions="CenterAndExpand"></Label>
+                        <Entry IsReadOnly="True" Text="{Binding Sala}" Grid.Row="5" Grid.Column="1"></Entry>
+
+                        <Label Text="Vrijeme prikazivanja" Grid.Row="6" Grid.Column="0" VerticalOptions="CenterAndExpand"></Label>
+                        <Entry IsReadOnly="True" Text="{Binding VrijemePrikazivanja}" Grid.Row="6" Grid.Column="1"></Entry>
+                        <Label Grid.Row="7"/>
+                        <Button Grid.Row="8" Grid.ColumnSpan="2" BackgroundColor="#e00917" TextColor="White" CornerRadius="3" Command="{Binding OtkaziRezervacijuCommand}" Text="Otkaži rezervaciju"></Button>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

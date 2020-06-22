@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:eKino.Mobile.ViewModels" xmlns:converters="clr-namespace:eKino.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="eKino.Mobile.Views.ProjekcijePage"
+             Title="Projekcije">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+        <vm:ProjekcijeViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+
+            <Grid HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+            <Picker TitleColor="#e00917" Title="Žanr" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ZanroviList}" SelectedItem="{Binding SelectedZanr}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+
+            <Picker TitleColor="#e00917" Title="Ocjena filma" Grid.Row="2" Grid.Column="0" ItemsSource="{Binding OcjeneList}"  SelectedItem="{Binding SelectedOcjena}"></Picker>
+            </Grid>
+            
+            <ListView ItemsSource="{Binding ProjekcijeList}" HorizontalOptions="FillAndExpand" 
+                      SeparatorVisibility="Default" SeparatorColor="Black" ItemSelected="ListView_ItemSelected">
+              
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal" IsVisible="True" Margin="5">
+                                <StackLayout>
+                                    <Frame HeightRequest="100" WidthRequest="150" BackgroundColor="White" Padding="0" HasShadow="false">
+                                    <Image Source="{Binding Film.Slika, Converter={StaticResource imgConv}}"></Image>
+                                    </Frame>
+                                </StackLayout>
+                                <Label></Label>
+                                <Label></Label>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Film}" TextColor="#e00917" FontSize="15" FontAttributes="Bold"></Label>
+                                    <Label Text="{Binding Drzava}" TextColor="#e00917" FontSize="12"></Label>
+                                    <Label Text="{Binding DatumVrijemeOdrzavanja}" TextColor="#e00917" FontSize="12"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Entry Text="Preporučeno" IsReadOnly="True" HorizontalTextAlignment="Center" FontSize="Subtitle" TextColor="#e00917"></Entry>
+            
+            <ListView ItemsSource="{Binding PreporuceneProjekcijeList}" HorizontalOptions="FillAndExpand" 
+                      SeparatorVisibility="Default" SeparatorColor="Black" ItemSelected="ListView_ItemSelected">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal" IsVisible="True" Margin="5">
+                                <StackLayout>
+                                    <Frame HeightRequest="100" WidthRequest="150" BackgroundColor="White" Padding="0" HasShadow="false">
+                                        <Image Source="{Binding Film.Slika, Converter={StaticResource imgConv}}"></Image>
+                                    </Frame>
+                                </StackLayout>
+                                <Label></Label>
+                                <Label></Label>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Film}" TextColor="#e00917" FontSize="15" FontAttributes="Bold"></Label>
+                                    <Label Text="{Binding Drzava}" TextColor="#e00917" FontSize="12"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

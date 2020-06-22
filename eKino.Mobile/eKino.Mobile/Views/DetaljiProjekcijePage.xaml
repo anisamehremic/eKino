@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:eKino.Mobile.ViewModels" xmlns:converters="clr-namespace:eKino.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="eKino.Mobile.Views.DetaljiProjekcijePage"
+             Title="Projekcija">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
+    <ContentPage.BindingContext>
+            <vm:DetaljiProjekcijeViewModel/>
+        </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <ScrollView VerticalScrollBarVisibility="Default" HorizontalScrollBarVisibility="Default">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"></RowDefinition>
+                        <RowDefinition Height="200"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Image Margin="0" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+
+                    <Label FontAttributes="Bold" Text="Film" Grid.Row="2" Grid.Column="0" Padding="15"></Label>
+                    <Label Text="{Binding Film}" Grid.Row="2" Grid.Column="1" Padding="15" HorizontalTextAlignment="Center"></Label>
+
+                    <Label FontAttributes="Bold" Text="Opis" Grid.Row="3" Grid.Column="0" Padding="15"></Label>
+                    <Label Text="{Binding Opis}" Grid.Row="3" Grid.Column="1" Padding="15" HorizontalTextAlignment="Center"></Label>
+
+                    <Label FontAttributes="Bold" Text="Država" Grid.Row="4" Grid.Column="0" Padding="15" ></Label>
+                    <Label Text="{Binding Drzava}" Grid.Row="4" Grid.Column="1" Padding="15" HorizontalTextAlignment="Center"></Label>
+
+                    <Label FontAttributes="Bold" Text="Vrsta projekcije" Grid.Row="5" Grid.Column="0" Padding="15"></Label>
+                    <Label Text="{Binding VrstaProjekcije}" Grid.Row="5" Grid.Column="1" Padding="15" HorizontalTextAlignment="Center"></Label>
+
+                    <Label FontAttributes="Bold" Text="Sala" Grid.Row="6" Grid.Column="0" Padding="15"></Label>
+                    <Label Text="{Binding Sala}" Grid.Row="6" Grid.Column="1" Padding="15" HorizontalTextAlignment="Center"></Label>
+
+                    <Label FontAttributes="Bold" Text="Glumci" Grid.Row="7" Grid.Column="0" Padding="15"></Label>
+                    <Label Text="{Binding Glumci}" Grid.Row="7" Grid.Column="1" Padding="15" HorizontalTextAlignment="Center"></Label>
+
+                    <Label FontAttributes="Bold" Text="Režiser" Grid.Row="8" Grid.Column="0" Padding="15"></Label>
+                    <Label Text="{Binding Reziser}" Grid.Row="8" Grid.Column="1" Padding="15" HorizontalTextAlignment="Center"></Label>
+
+
+                    <Button Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#e00917" TextColor="White" CornerRadius="3" Clicked="Button_Clicked" BindingContext="{Binding ProjekcijaId}" Text="Rezerviši"></Button>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

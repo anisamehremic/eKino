@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:eKino.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eKino.Mobile.Views.RegistracijaPage"
+             Title="Registracija">
+    <ContentPage.BindingContext>
+        <vm:RegistracijaViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="20" Orientation="Vertical">
+            <Label HorizontalOptions="CenterAndExpand" FontSize="Subtitle" Text="Registruj se"></Label>
+            <Label></Label>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Ime*" Grid.Row="0" Grid.Column="0"
+                   VerticalTextAlignment="Center"></Label>
+                <Entry x:Name="Ime" Grid.Row="0" Grid.Column="1"
+                   Text="{Binding Ime}"></Entry>
+
+                <Label Text="Prezime*" Grid.Row="1" Grid.Column="0"
+                   VerticalTextAlignment="Center"></Label>
+                <Entry x:Name="Prezime" Grid.Row="1" Grid.Column="1"
+                   Text="{Binding Prezime}"></Entry>
+
+                <Label Text="Korisničko ime*" Grid.Row="2" Grid.Column="0"
+                   VerticalTextAlignment="Center"></Label>
+                <Entry x:Name="KorisnickoIme" Grid.Row="2" Grid.Column="1"
+                   Text="{Binding KorisnickoIme}"></Entry>
+
+                <Label Text="Email*" Grid.Row="3" Grid.Column="0"
+                   VerticalTextAlignment="Center"></Label>
+                <Entry x:Name="Email" Grid.Row="3" Grid.Column="1"
+                   Text="{Binding Email}"></Entry>
+
+                <Label Text="Telefon*" Grid.Row="4" Grid.Column="0"
+                   VerticalTextAlignment="Center"></Label>
+                <Entry x:Name="Telefon" Grid.Row="4" Grid.Column="1"
+                   Text="{Binding Telefon}"></Entry>
+
+                <Label Text="Datum rođenja*" Grid.Row="5" Grid.Column="0"
+                   VerticalTextAlignment="Center"></Label>
+                <DatePicker Grid.Row="5" Grid.Column="1" Date="{Binding DatumRodjenja}"></DatePicker>
+
+                <Label Grid.Row="6"></Label>
+                
+                <Label Text="Šifra*" Grid.Row="8" Grid.Column="0"
+                   VerticalTextAlignment="Center"></Label>
+                <Entry x:Name="Sifra" Grid.Row="8" Grid.Column="1"
+                       Text="{Binding Sifra}"
+                       IsPassword="true"></Entry>
+
+                <Label Text="Šifra potvrda*" Grid.Row="9" Grid.Column="0"
+                   VerticalTextAlignment="Center"></Label>
+                <Entry x:Name="SifraPotvrda" Grid.Row="9" Grid.Column="1"
+                   Text="{Binding SifraPotvrda}"
+                   IsPassword="true"></Entry>
+            </Grid>
+            <Label ></Label>
+            <Label TextColor="#e00917" Text="*Obavezno polje" HorizontalTextAlignment="End"></Label>
+            <Button BackgroundColor="#e00917" TextColor="White" CornerRadius="3" Clicked="Button_Clicked" Command="{Binding RegistracijaCommand}" Text="Sačuvaj" ></Button>
+            <Label ></Label>
+            <Label  TextColor="#e00917" Text="Imate korisnički račun?" HorizontalOptions="CenterAndExpand"></Label>
+
+            <Button BackgroundColor="#e00917" TextColor="White" CornerRadius="3" Command="{Binding PrijaviSeCommand}" Text="Prijavi se"></Button>
+               
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

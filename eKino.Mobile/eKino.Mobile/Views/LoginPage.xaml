@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:eKino.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eKino.Mobile.Views.LoginPage"
+             Title="Prijavi se">
+    
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="30" VerticalOptions="CenterAndExpand">
+            <Image Source=""></Image>
+            <Label FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="#e00917" Text="eKino"></Label>
+            <Label FontSize="Subtitle" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="#e00917" Text="Dobrodošli!"></Label>
+        <Label></Label>
+            <Entry x:Name="KorisnickoIme" PlaceholderColor="#e00917" Placeholder="Korisničko ime*" TextColor="#e00917" Text="{Binding Username}"></Entry>
+            <Entry x:Name="Password" PlaceholderColor="#e00917" Placeholder="Šifra*" TextColor="#e00917" IsPassword="True" Text="{Binding Password}"></Entry>
+            <Label></Label>
+            <Label HorizontalTextAlignment="End" TextColor="#e00917" Text="* Obavezno polje"></Label>
+            <Label></Label>
+            <StackLayout>
+                <Button BackgroundColor="#e00917" TextColor="White" CornerRadius="3" Command="{Binding LoginCommand}" Text="Prijavi se"></Button>
+            <Label></Label>
+                <Label HorizontalTextAlignment="Center" TextColor="#e00917" Text="Niste registrovani?"></Label>
+                <Button BackgroundColor="#e00917" TextColor="White" CornerRadius="3" Command="{Binding RegistracijaCommand}" Text="Registruj se" ></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

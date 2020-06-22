@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:eKino.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eKino.Mobile.Views.UlaznicePage"
+             Title="Ulaznice">
+    <ContentPage.BindingContext>
+        <vm:UlazniceViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding UlazniceList}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                <Label Text="Film " FontAttributes="Bold"></Label>
+                                <Label Text="{Binding Projekcija.Film}"></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                <Label Text="Sala " FontAttributes="Bold"></Label>
+                                <Label Text="{Binding Projekcija.Sala}"></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                <Label Text="Vrijeme prikazivanja projekcije " FontAttributes="Bold"></Label>
+                                <Label Text="{Binding Projekcija.DatumVrijemeOdrzavanja}"></Label>
+                                <Label Text=">>>" TextColor="#e00917" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"
+                                       ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

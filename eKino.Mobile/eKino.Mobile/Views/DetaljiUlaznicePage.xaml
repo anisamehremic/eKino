@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:converters="clr-namespace:eKino.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="eKino.Mobile.Views.DetaljiUlaznicePage"
+             Title="Ulaznica">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <Label></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="Projekcija: " TextColor="#e00917" FontAttributes="Bold" FontSize="18"></Label>
+                <Label Text="{Binding Projekcija}" TextColor="#e00917" FontSize="18"></Label>
+            </StackLayout>
+            <Label Text=" "/>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Vertical" Margin="20,0,40,20">
+                    <Image HorizontalOptions="CenterAndExpand" Source="{Binding Projekcija.Film.Slika, Converter={StaticResource imgConv}}" HeightRequest="250"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="              "/>
+                    <Label Text="              "/>
+                    <Label Text="              "/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <Label Text="Vrsta projekcije " FontAttributes="Bold"></Label>
+                    <Label Text="{Binding VrstaProjekcije}"></Label>
+                    <Label></Label>
+                    <Label Text="Sala" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding Sala}"></Label>
+                    <Label Text="  "></Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Red" FontAttributes="Bold"></Label>
+                        <Label Text="{Binding Red}"></Label>
+                        <Label Text="  "></Label>
+                        <Label Text="Sjedište" FontAttributes="Bold"></Label>
+                        <Label Text="{Binding Sjediste}"></Label>
+                    </StackLayout>
+                    <Label Text="  "></Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Cijena " FontAttributes="Bold"></Label>
+                        <Label Text="{Binding Cijena}"></Label>
+                        <Label Text=" KM "></Label>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                <Label Text="Za više informacija skeniraj QR code"/>
+                <Label Text=" "/>
+                <Image Source="{Binding Slika, Converter={StaticResource imgConv}}"  HeightRequest="150" WidthRequest="150"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

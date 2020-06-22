@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:eKino.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eKino.Mobile.Views.SjedistaPage"
+             Title="Odaberi sjedište">
+    <ContentPage.BindingContext>
+        <vm:SjedistaViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="10">
+                <Grid x:Name="loadingOverlay" IsVisible="{Binding IsBusy}">
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" />
+                </Grid>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Slobodno" BackgroundColor="#27d956" TextColor="White"></Button>
+                    <Label></Label>
+                    <Button Text="Odabrano" BackgroundColor="White" TextColor="Red"></Button>
+                    <Label></Label>
+                    <Button Text="Zauzeto" BackgroundColor="#ed112e" TextColor="White"></Button>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Margin="90,0,0,0" BackgroundColor="White" HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                <Label></Label>
+                <Label></Label>
+                    <Grid x:Name="Sjedista" HorizontalOptions="CenterAndExpand"></Grid>
+            </StackLayout>
+            <StackLayout x:Name="Dalje" IsVisible="False" Orientation="Vertical">
+                <Label x:Name="Odabrano" IsVisible="False"></Label>
+                <Label></Label>
+                <Label x:Name="Poruka" FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#ed112e"></Label>
+                <Button CornerRadius="3" Clicked="Button_Clicked_2" Text="Završi rezervaciju" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#ed112e"
+                        Command="{Binding InitCommand}"></Button>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

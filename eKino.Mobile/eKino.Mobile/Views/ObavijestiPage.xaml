@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:eKino.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eKino.Mobile.Views.ObavijestiPage"
+             Title="Obavijesti">
+    <ContentPage.BindingContext>
+        <vm:ObavijestiViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Entry Text="Nove obavijesti" IsReadOnly="True" TextColor="#e00917" FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"></Entry>
+
+            <ListView ItemsSource="{Binding NeprocitaneNotifikacijeList}" HorizontalOptions="FillAndExpand" 
+                      SeparatorVisibility="Default" SeparatorColor="Black" SelectedItem="{Binding SelectedNotifikacija}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal" IsVisible="True" Margin="5">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Naslov}" TextColor="#e00917" FontSize="15" FontAttributes="Bold" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label Text="{Binding DatumSlanja}" HorizontalTextAlignment="Center" FontSize="12" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label></Label>
+            <Entry Text="Pročitano" IsReadOnly="True" TextColor="#e00917" FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"></Entry>
+
+
+            <ListView ItemsSource="{Binding ProcitaneNotifikacijeList}" HorizontalOptions="FillAndExpand" 
+                      SeparatorVisibility="Default" SeparatorColor="Black" SelectedItem="SelectedNotifikacija">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal" IsVisible="True" Margin="5">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Naslov}" TextColor="#e00917" FontSize="15" FontAttributes="Bold"></Label>
+                                    <Label>
+                                    </Label>
+                                    <Label Text="{Binding DatumSlanja}" FontSize="12"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

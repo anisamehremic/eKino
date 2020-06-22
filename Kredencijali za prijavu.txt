@@ -1,0 +1,6 @@
+Desktop aplikacija:
+username:desktop
+password:test
+Mobilna aplikacija:
+username:mobile
+password:test
